@@ -34,7 +34,7 @@ public class AuthorizationTest {
         homePage.waitLoadHomePage();
         boolean buttonCreateOrder = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrder);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class AuthorizationTest {
         homePage.waitLoadHomePage();
         boolean buttonCreateOrder = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrder);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class AuthorizationTest {
         homePage.waitLoadHomePage();
         boolean buttonCreateOrder = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrder);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -82,10 +82,6 @@ public class AuthorizationTest {
         homePage.waitLoadHomePage();
         boolean buttonCreateOrder = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrder);
-        deleteUser(user);
-    }
-
-    public void deleteUser(User user) {
         step.deleteUser(user);
     }
 

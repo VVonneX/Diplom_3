@@ -36,10 +36,6 @@ public class LogoutTest {
         profilePage.clickLogoutButton();
         boolean inputButtonIsDisplay = loginPage.buttonAuthorizationIsDisplayed();
         Assert.assertTrue(inputButtonIsDisplay);
-        deleteUser(user);
-    }
-
-    public void deleteUser(User user) {
         step.deleteUser(user);
     }
 

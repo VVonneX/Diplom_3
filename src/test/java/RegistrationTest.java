@@ -34,7 +34,7 @@ public class RegistrationTest {
         loginPage.waitLoadLoginPage();
         boolean buttonAuth = loginPage.buttonAuthorizationIsDisplayed();
         Assert.assertTrue(buttonAuth);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -48,10 +48,6 @@ public class RegistrationTest {
         registrationPage.setFieldAndClickButtonRegistration(user.getName(), user.getEmail(), user.getPassword());
         boolean errorMessage = registrationPage.errorMessageWithPasswordIsDisplayed();
         Assert.assertTrue(errorMessage);
-    }
-
-    public void deleteUser(User user) {
-        step.deleteUser(user);
     }
 
     @After

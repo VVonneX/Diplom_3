@@ -35,7 +35,7 @@ public class TransitionTest {
         profilePage.waitLoadProfilePage();
         boolean profileIsDisplay = profilePage.profileButtonIsDisplayed();
         Assert.assertTrue(profileIsDisplay);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class TransitionTest {
         profilePage.clickConstructorButton();
         boolean buttonCreateOrderIsDisplay = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrderIsDisplay);
-        deleteUser(user);
+        step.deleteUser(user);
     }
 
     @Test
@@ -67,10 +67,6 @@ public class TransitionTest {
         profilePage.clickLogoButton();
         boolean buttonCreateOrderIsDisplay = homePage.buttonCreateOrderIsDisplayed();
         Assert.assertTrue(buttonCreateOrderIsDisplay);
-        deleteUser(user);
-    }
-
-    public void deleteUser(User user) {
         step.deleteUser(user);
     }
 
