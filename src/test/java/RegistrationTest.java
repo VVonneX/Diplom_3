@@ -1,3 +1,4 @@
+import base.BaseTest;
 import browser.Browser;
 import org.junit.After;
 import org.junit.Assert;
@@ -8,12 +9,13 @@ import pageobject.HomePage;
 import pageobject.LoginPage;
 import pageobject.RegistrationPage;
 import user.User;
-import user.UserStep;
+import steps.UserStep;
 
 public class RegistrationTest {
     private static final String URL = "https://stellarburgers.nomoreparties.site/";
     private WebDriver driver;
     private UserStep step = new UserStep();
+    private boolean isTearDownCalled = true;
 
     @Before
     public void setup() {
@@ -27,19 +29,19 @@ public class RegistrationTest {
         User user = new User("MishaChurikov20@yandex.ru", "password1234", "Михаил");
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
+        RegistrationPage registrationPage = new RegistrationPage(driver);
         homePage.clickPersonalAccount();
         loginPage.clickToRegistration();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.setFieldAndClickButtonRegistration(user.getName(), user.getEmail(), user.getPassword());
         loginPage.waitLoadLoginPage();
         boolean buttonAuth = loginPage.buttonAuthorizationIsDisplayed();
         Assert.assertTrue(buttonAuth);
-        step.deleteUser(user);
     }
 
     @Test
     public void registrationNegativeTest() {
         User user = new User("MishaChurikov20@yandex.ru", "1234F", "Михаил");
+        isTearDownCalled = false;
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -52,6 +54,10 @@ public class RegistrationTest {
 
     @After
     public void tearDown() {
+        if(!isTearDownCalled) {
+            User user = new User("MishaChurikov20@yandex.ru", "password1234", "Михаил");
+            step.deleteUser(user);
+        }
         driver.quit();
     }
 }

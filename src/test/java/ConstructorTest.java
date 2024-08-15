@@ -1,3 +1,4 @@
+import base.BaseTest;
 import browser.Browser;
 import org.junit.After;
 import org.junit.Assert;
@@ -6,20 +7,10 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pageobject.HomePage;
 
-public class ConstructorTest {
-    private static final String URL = "https://stellarburgers.nomoreparties.site/";
-    private WebDriver driver;
-
-    @Before
-    public void setup() {
-        Browser browser = new Browser();
-        driver = browser.getWebDriver("chrome");
-        driver.get(URL);
-    }
+public class ConstructorTest extends BaseTest {
 
     @Test
     public void constructorBreadTest() {
-        HomePage homePage = new HomePage(driver);
         homePage.clickToDisplay("Начинки");
         homePage.clickToDisplay("Булки");
         boolean checkBread = homePage.ingredientsIsDisplay("Краторная булка N-200i");
@@ -28,7 +19,6 @@ public class ConstructorTest {
 
     @Test
     public void constructorSauceTest() {
-        HomePage homePage = new HomePage(driver);
         homePage.clickToDisplay("Соусы");
         boolean checksSauce = homePage.ingredientsIsDisplay("Соус фирменный Space Sauce");
         Assert.assertTrue(checksSauce);
@@ -36,14 +26,8 @@ public class ConstructorTest {
 
     @Test
     public void constructorFillingTest() {
-        HomePage homePage = new HomePage(driver);
         homePage.clickToDisplay("Начинки");
         boolean checkFilling = homePage.ingredientsIsDisplay("Хрустящие минеральные кольца");
         Assert.assertTrue(checkFilling);
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
     }
 }
