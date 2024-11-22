@@ -1,6 +1,6 @@
 package pageobject;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-    @Step("Filling in the registration fields with data and clicking on the registration button")
+    //@Step("Filling in the registration fields with data and clicking on the registration button")
     public void setFieldAndClickButtonRegistration(String name, String email, String password) {
         driver.findElement(By.xpath(String.format(fieldRegistration, "Имя"))).sendKeys(name);
         driver.findElement(By.xpath(String.format(fieldRegistration, "Email"))).sendKeys(email);
@@ -24,13 +24,13 @@ public class RegistrationPage {
         driver.findElement(locatorRegistrationButton).click();
     }
 
-    @Step("Checking that a password error message is displayed")
+    //@Step("Checking that a password error message is displayed")
     public boolean errorMessageWithPasswordIsDisplayed() {
         WebElement element = driver.findElement(By.xpath("//p[text()='Некорректный пароль']"));
         return element.isDisplayed();
     }
 
-    @Step("Clicking the transfer button to the authorization page")
+    //@Step("Clicking the transfer button to the authorization page")
     public void clickButtonAuthorization() {
         driver.findElement(locatorInputSystemButton).click();
     }

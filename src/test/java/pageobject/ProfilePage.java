@@ -1,6 +1,6 @@
 package pageobject;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,28 +18,28 @@ public class ProfilePage {
         this.driver = driver;
     }
 
-    @Step("Checking that the Profile button is displayed")
+  //  @Step("Checking that the Profile button is displayed")
     public boolean profileButtonIsDisplayed() {
         WebElement element = driver.findElement(locatorToPersonalAccount);
         return element.isDisplayed();
     }
 
-    @Step("Clicking on the Constructor button in the header")
+  //  @Step("Clicking on the Constructor button in the header")
     public void clickConstructorButton() {
         driver.findElement(locatorToConstructor).click();
     }
 
-    @Step("Clicking on the logo button in the header")
+  //  @Step("Clicking on the logo button in the header")
     public void clickLogoButton() {
         driver.findElement(locatorToLogo).click();
     }
 
-    @Step("Clicking on the Log Out button to log out of your account")
+   // @Step("Clicking on the Log Out button to log out of your account")
     public void clickLogoutButton() {
         driver.findElement(locatorToLogout).click();
     }
 
-    @Step("Waiting for the profile page to load")
+   // @Step("Waiting for the profile page to load")
     public void waitLoadProfilePage() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

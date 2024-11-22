@@ -1,6 +1,6 @@
 package pageobject;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,30 +22,30 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    @Step("Filling in the registration fields with data and clicking on the authorization button")
+   // @Step("Filling in the registration fields with data and clicking on the authorization button")
     public void setFieldAndClickButtonInputInSystem(String email, String password) {
         driver.findElement(By.xpath(String.format(fieldLoginInSystem, "Email"))).sendKeys(email);
         driver.findElement(By.xpath(String.format(fieldLoginInSystem, "Пароль"))).sendKeys(password);
         driver.findElement(locatorInputSystemButton).click();
     }
 
-    @Step("Clicking on the button to go to the registration page")
+  //  @Step("Clicking on the button to go to the registration page")
     public void clickToRegistration() {
         driver.findElement(locatorToRegister).click();
     }
 
-    @Step("Clicking on the button to go to the password recovery page")
+ //   @Step("Clicking on the button to go to the password recovery page")
     public void clickButtonPasswordRecovery() {
         driver.findElement(locatorInPasswordRecoveryButton).click();
     }
 
-    @Step("Checking that the login button is displayed")
+  //  @Step("Checking that the login button is displayed")
     public boolean buttonAuthorizationIsDisplayed() {
         WebElement element = driver.findElement(locatorToAuthorizationButton);
         return element.isDisplayed();
     }
 
-    @Step("Waiting for the login page to load")
+  //  @Step("Waiting for the login page to load")
     public void waitLoadLoginPage() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

@@ -1,6 +1,6 @@
 package pageobject;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,33 +19,33 @@ public class HomePage {
         this.driver = driver;
     }
 
-    @Step("Click on the Personal Account in the header")
+   // @Step("Click on the Personal Account in the header")
     public void clickPersonalAccount() {
         driver.findElement(locatorToPersonalAccount).click();
     }
 
-    @Step("Click on the Personal Account in the body")
+  //  @Step("Click on the Personal Account in the body")
     public void clickButtonInputInAccount() {
         driver.findElement(By.xpath(String.format(registrationOrCreateOrderButton, "Войти в аккаунт"))).click();
     }
 
-    @Step("Checking that the \"Create order\" button is displayed")
+  //  @Step("Checking that the \"Create order\" button is displayed")
     public boolean buttonCreateOrderIsDisplayed() {
         WebElement element = driver.findElement(By.xpath(String.format(registrationOrCreateOrderButton, "Оформить заказ")));
         return element.isDisplayed();
     }
 
-    @Step("Waiting for the home page to load")
+   // @Step("Waiting for the home page to load")
     public void waitLoadHomePage() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Step("Clicking on the ingredient selection button")
+  //  @Step("Clicking on the ingredient selection button")
     public void clickToDisplay(String displayName) {
         driver.findElement(By.xpath(String.format(locatorDisplayIngredients, displayName))).click();
     }
 
-    @Step("Checking that the ingredients are displayed in a certain tab")
+  //  @Step("Checking that the ingredients are displayed in a certain tab")
     public boolean ingredientsIsDisplay(String ingredientsName) {
         WebElement element = driver.findElement(By.xpath(String.format(locatorIngredients, ingredientsName)));
         return element.isDisplayed();

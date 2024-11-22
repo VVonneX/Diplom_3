@@ -1,6 +1,6 @@
 package pageobject;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +13,7 @@ public class PasswordRecoveryPage {
         this.driver = driver;
     }
 
-    @Step("Clicking on the login button to go to the authorization page")
+ //   @Step("Clicking on the login button to go to the authorization page")
     public void clickButtonAuthorization() {
         driver.findElement(locatorInputSystemButton).click();
     }
